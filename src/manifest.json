@@ -1,5 +1,5 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "PoE Wiki Search",
     "version": "1.0.6",
     "description": "Stupid-simple wiki search for PoE!",
@@ -8,24 +8,25 @@
         "152": "icons/icon_152.png"
     },
     "permissions": [
-        "webRequest",
-        "webRequestBlocking",
-        "https://pathofexile.fandom.com/",
-        "https://google.com/",
-        "https://www.google.com/",
-        "https://duckduckgo.com/",
-        "https://www.duckduckgo.com/"
+        "declarativeNetRequestWithHostAccess"
     ],
-    "background": {
-        "page": "background/background.html"
-      },
-    "browser_action": {
+    "declarative_net_request": {
+        "rule_resources": [{
+            "id": "fandom redirect",
+            "enabled": true,
+            "path": "rules.json"
+        }]
+    },
+    "host_permissions": [
+        "https://pathofexile.fandom.com/"
+    ],
+    "action": {
         "default_icon": "icons/favicon.png",
         "default_title": "PoE Wiki Search",
         "default_popup": "ui/ui.html"
     },
     "commands": {
-        "_execute_browser_action": {
+        "_execute_action": {
             "suggested_key": {
                 "default": "Alt+W"
             }

@@ -1,0 +1,18 @@
+[
+    {
+      "id": 1,
+      "priority": 1,
+      "action": {
+        "type": "redirect",
+        "redirect": {
+          "transform": {
+            "host": "www.poewiki.net"
+          }
+        }
+      },
+      "condition": {
+        "urlFilter": "https://pathofexile.fandom.com/wiki",
+        "resourceTypes": ["main_frame"]
+      }
+    }
+]
